@@ -15,32 +15,33 @@
     </head>
     <body>
         <section class="container-fluid col-md-4">
-            <h1>Novo Candidato</h1>
+            <h1>Editar Candidato</h1>
             <a class="btn btn-primary" href="/">Voltar</a>
             <br>
             <br>        
 
             <form id="form-register" action="/save" method="POST">
-                <input type="hidden" id="action" name="action" value="/save"/>
+                <input type="hidden" id="action" name="action" value="/update"/>
+                <input type="hidden" id="id" name="id" value="<?php echo $candidato->id; ?>"/>
                 
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" class="form-control" required/>
+                    <input type="text" id="nome" name="nome" class="form-control" value="<?php echo $candidato->nome; ?>" required/>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="text" id="email" name="email" class="form-control" required/>
+                    <input type="text" id="email" name="email" class="form-control" value="<?php echo $candidato->email; ?>" required/>
                 </div>
                 <fieldset class="form-group">
                     <label for="nome">Sexo</label>
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input sexo" name="sexo" value="F" checked="checked"/> Feminino
+                        <input type="radio" class="form-check-input sexo" name="sexo" value="f" <?php echo $candidato->sexo == 'f' ? 'checked="checked"' : ''; ?>/> Feminino
                       </label>
                     </div>
                     <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input sexo" name="sexo" value="M"/> Masculino
+                        <input type="radio" class="form-check-input sexo" name="sexo" value="m" <?php echo $candidato->sexo == 'm' ? 'checked="checked"' : ''; ?>/> Masculino
                       </label>
                     </div>
                 </fieldset>
